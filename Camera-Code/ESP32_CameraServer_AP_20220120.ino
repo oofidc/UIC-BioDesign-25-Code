@@ -20,6 +20,7 @@ bool WA_en = false;
 
 void SocketServer_Test(void)
 {
+  //Create WifiClient object and check server availability
   static bool ED_client = true;
   WiFiClient client = server.available(); //尝试建立客户对象
   if (client)                             //如果当前客户可用
