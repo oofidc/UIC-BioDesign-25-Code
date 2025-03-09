@@ -44,13 +44,29 @@ static vector<vector<int>> digitize(vector<vector<int>> arr2d, vector<int> bins)
     return digitized;
 }
 
+static 
 
 
 
-fast_glcm(int img[width][height]){}
-fast_glcm(){
-    return;
+
+fast_glcm(int img[width][height]){
+
+
+    vector<vector<int>> imgVec(img);
+    int mi = min(imgVec);
+    int ma = max(imgVec);
+    vector<int> lines = createLinspace(mi, ma);
+    vector<vector<int>> digitized = digitize(imgVec, lines);
+
+    double dx = distance*cos(angle * (M_PI/180));
+    double dy = distance*sin(-1*angle * (M_PI/180));
+    double mat[] = {{},{}};
+
+
+    
+
 }
+
 
 
 
