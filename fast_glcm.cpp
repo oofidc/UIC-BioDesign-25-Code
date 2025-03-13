@@ -5,7 +5,7 @@ using namespace std;
 
 #define glcm_levels 10
 #define distance 1
-#define kernel_size 5
+#define kernel_size 3
 #define angle 0
 #define nbits 8 //number of bits used during the cooccurance matrix calculation
 #define vector4d vector<vector<vector<vector<int>>>>
@@ -104,7 +104,29 @@ static vector<vector<int>> digitize(vector<vector<int>> arr2d, vector<int> bins)
 }
 
 
-
+static vector<vector<int>> filter2D(vector<vector<int>> Mat, int depth, vector<vector<int>> kernel){
+    vector<vector<int>> output;
+    int kernel_center = kernel_size/2;
+    int rows = Mat.size();
+    int cols = Mat[0].size();
+    int sum;
+    for(int i = 0; i < rows; i++){
+        vector<int> row;
+        for(int j = 0; j < cols; j++){
+            sum = 0;
+            for(int k = 0; k < kernel_size; k++){
+                for(int l = 0; l < kernel_size; l++){
+                    if(i + k - kernel_center >= 0 && i + k - kernel_center < rows && j + l - kernel_center >= 0 && j + l - kernel_center < cols){
+                        sum += Mat[i + k - kernel_center][j + l - kernel_center] * kernel[k][l];
+                    }
+                }
+            }
+            row.push_back(sum);
+        }
+        output.push_back(row);
+    }
+    return output;
+}
 
 
 static vector4d create_fast_glcm(vector<vector<int>> imgVec){
@@ -171,6 +193,39 @@ static vector4d create_fast_glcm(vector<vector<int>> imgVec){
             }
         }
     }
+
+    vector<vector<int>> kernel = vector<vector<int>>(kernel_size, vector<int>(kernel_size, 1));
+    
+    for(int i = 0; i < nbits; i++){
+        for(int j = 0; j < nbits; j++){
+            //Begin 2D Filtering/Convolution
+            vector<vector<int>> output;
+            int sum;
+            int rows = glcm[i][j].size();
+            int cols = glcm[i][j][0].size();
+            int kernel_center = kernel_size/2;
+            for(int i = 0; i < rows; i++){
+            vector<int> row;
+                for(int j = 0; j < cols; j++){
+                sum = 0;
+                    for(int k = 0; k < kernel_size; k++){
+                        for(int l = 0; l < kernel_size; l++){
+                            if(i + k - kernel_center >= 0 && i + k - kernel_center < rows && j + l - kernel_center >= 0 && j + l - kernel_center < cols){
+                                sum += glcm[i][j][i + k - kernel_center][j + l - kernel_center] * kernel[k][l];
+                            }
+                        }
+                    }
+                    row.push_back(sum);
+                }
+            output.push_back(row);
+            }  
+            glcm[i][j] = output;
+            output.clear();   
+        }
+    }
+
+    
+
 
     cout<< "AFTER GLCM" << endl;
 
