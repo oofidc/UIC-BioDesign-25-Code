@@ -5,7 +5,7 @@ using namespace std;
 
 #define glcm_levels 10
 #define distance 1
-#define kernel_size 3
+#define kernel_size 3 //Should be odd - almost never even, or else it will be difficult to find the center
 #define angle 0
 #define nbits 8 //number of bits used during the cooccurance matrix calculation
 #define vector4d vector<vector<vector<vector<int>>>>
@@ -62,6 +62,23 @@ static T max2dVec(vector<vector<T>> A){
     }
     return largest;
 } 
+//Gets the kernel from the 2D Vector and returns it; DOES NOT CHECK FOR OUT OF BOUNDS EXCEPTIONS - USE WITH CAUTION
+static vector<vector<int>> getKernel(vector <vector<int>> kernel, int row, int col){
+
+    vector<vector<int>> output;
+    int kernel_radius = kernel_size()/2;
+
+    for(int i = row-kernel_radius; i < row+kernel_radius; i++){
+        vector<int> row;
+        for(int j = col-kernel_radius; j < col+kernel_radius; j++){
+            row.push_back(kernel[i][j]);
+        }
+        output.push_back(row);
+    }
+
+    return output
+
+}
 
 
 public:
@@ -208,13 +225,7 @@ static vector4d create_fast_glcm(vector<vector<int>> imgVec){
             vector<int> row;
                 for(int j = 0; j < cols; j++){
                 sum = 0;
-                    for(int k = 0; k < kernel_size; k++){
-                        for(int l = 0; l < kernel_size; l++){
-                            if(i + k - kernel_center >= 0 && i + k - kernel_center < rows && j + l - kernel_center >= 0 && j + l - kernel_center < cols){
-                                sum += glcm[i][j][i + k - kernel_center][j + l - kernel_center] * kernel[k][l];
-                            }
-                        }
-                    }
+                    
                     row.push_back(sum);
                 }
             output.push_back(row);
