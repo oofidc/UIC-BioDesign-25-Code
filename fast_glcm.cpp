@@ -8,6 +8,9 @@ using namespace std;
 #define kernel_size 5
 #define angle 0
 #define nbits 8 //number of bits used during the cooccurance matrix calculation
+#define vector4d vector<vector<vector<vector<int>>>>
+
+ 
 
 //Based off of python 'fast_glcm.py' package - https://github.com/tzm030329/GLCM/blob/master/fast_glcm.py
 template<int width, int height>
@@ -104,7 +107,7 @@ static vector<vector<int>> digitize(vector<vector<int>> arr2d, vector<int> bins)
 
 
 
-static vector<vector<int>> create_fast_glcm(vector<vector<int>> imgVec){
+static vector4d create_fast_glcm(vector<vector<int>> imgVec){
 
     int mi = min2dVec<int>(imgVec);
     int ma = max2dVec<int>(imgVec);
@@ -116,24 +119,65 @@ static vector<vector<int>> create_fast_glcm(vector<vector<int>> imgVec){
     }
     cout << endl;
     cout<< ma << endl;
-    if(true) return digitize(imgVec, lines);
-
+    imgVec = digitize(imgVec, lines);
+    cout<<"AFTER DIGITIZE #1 "<< endl;
+    for(vector<int> row: imgVec){
+        for(int x: row){
+            cout << x << " ";
+        }
+        cout << endl;
+    }
     double dx = distance*cos(angle * (M_PI/180));
     double dy = distance*sin(-1*angle * (M_PI/180));
    
-   vector<vector<int>> shiftedImg(width, vector<int>(height, 0));
+   vector<vector<int>> shiftedImg;
     //ASSUMES DX = -1 and DY = 0
     int temp;
     for(int i = 0; i < imgVec.size(); i++) {
+        vector<int> row;
         temp = imgVec[i][0];
-        for(int j = 0; j < imgVec[i].size()-1; j++) {
-            imgVec[i][j] = imgVec[i][j+1];
-        
+        for(int j = 1; j < imgVec[i].size(); j++) {
+            row.push_back(imgVec[i][j]);
         }
-        imgVec[i][imgVec[i].size()-1] = temp;
+        row.push_back(temp);
+        shiftedImg.push_back(row);
+    }
+    cout<<"AFTER DIGITIZE #2 "<< endl;
+    for(vector<int> row: shiftedImg){
+        for(int x: row){
+            cout << x << " ";
+        }
+        cout << endl;
+    }
+    //Only works for rectangular shaped vectors - however most imags fit this
+    vector4d glcm(nbits, std::vector<std::vector<std::vector<int>>>(
+        nbits, std::vector<std::vector<int>>(
+            imgVec.size(), std::vector<int>(imgVec[0].size(), 0)
+        )
+    ));
+    for(int i = 0; i< nbits; i++){
+        //cout<< i << endl; DEBUG
+        for(int j = 0; j<nbits; j++){
+            //cout<< "\t"<<j << endl; //DEBUG
+            //Ngl - ami ndiongngoke se ye nam mmi
+            for(int h = 0; h<imgVec.size(); h++){
+
+                //cout<< "\t\t"<<h << endl; //DEBUG
+                for(int w = 0; w<imgVec[0].size(); w++){
+                    //cout<< "\t\t\t"<<w << endl;//DEBUG 
+
+                    glcm[i][j][h][w] = imgVec[h][w] == i & shiftedImg[h][w] == j;
+                }
+            }
+        }
     }
 
-    return imgVec;
+    cout<< "AFTER GLCM" << endl;
+
+
+
+
+    return glcm;
 
 
 
@@ -157,17 +201,23 @@ int main(){
     vector<int> lines = fast_glcm<5,2>::createLinspace(2,82+1);
     vector<vector<int>> arr2d;
     arr2d.push_back({2,3,4,6,7});
-    arr2d.push_back({3,5,24,34,2});
+    arr2d.push_back({3,5,82,34,2});
     //int arr[2][5] = {{2,3,4,6,7},{3,5,82,34,2}};
-    vector<vector<int>> output = fast_glcm<2,5>::create_fast_glcm(arr2d);
+  vector4d output = fast_glcm<2,5>::create_fast_glcm(arr2d);
     
 
 
     cout<<endl;
 
-    for(vector<int> x: output){
-        for(int y: x){
-            cout << y << " ";
+    for(vector<vector<vector<int>>> x: output){
+        for(vector<vector<int>> y: x){
+            for(vector<int> z: y){
+                for(int a: z){
+                    cout << a << " ";
+                }
+                cout << endl;
+            }
+            cout<<endl;
         }
         cout << endl;
     }
