@@ -7,6 +7,12 @@
  * @LastEditTime: 2020-09-07 09:40:03
  */
 //#include <EEPROM.h>
+
+//Installed Libraries:
+/*
+-ArduCam
+
+*/
 #include "CameraWebServer_AP.h"
 #include <WiFi.h>
 #include "esp_camera.h"
