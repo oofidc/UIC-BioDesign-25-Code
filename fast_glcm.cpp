@@ -277,6 +277,8 @@ public:
                 }
             }
 
+        }
+
             cout << "AFTER GLCM" << endl;
 
             return glcm;
