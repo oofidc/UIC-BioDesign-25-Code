@@ -15,6 +15,7 @@
 */
 #include "fast_glcm_ard.cpp"
 #include "CameraWebServer_AP.h"
+#include "Arduino.h"
 #include <vector>
 #include <WiFi.h>
 #include "esp_camera.h"
@@ -197,19 +198,19 @@ void loop() {
   vector<vector<int>> arr2d = { { 2, 3, 4, 6, 7 }, { 3, 5, 82, 34, 2 }, { 2, 3, 7, 5, 8 }, { 15, 71, 23, 45, 67 }, { 2, 56, 7, 89, 1 } };
   vector4d output = fast_glcm_ard<5, 5>::create_fast_glcm(arr2d);
 
-  Serial.println("GLCM PROCESSING \n\n\n\n\n");
+  Serial2.println("GLCM PROCESSING \n\n\n\n\n");
 
   for (vector<vector<vector<int>>> x : output) {
     for (vector<vector<int>> y : x) {
       for (vector<int> z : y) {
         for (int a : z) {
-          cout << a << " ";
+          Serial2.println( String(a) + " ");
         }
-        Serial.println("\n");
+        Serial2.println("\n");
       }
-      Serial.println("\n");
+      Serial2.println("\n");
     }
-    Serial.println("\n");
+    Serial2.println("\n");
   }
   delay(10000);
 }

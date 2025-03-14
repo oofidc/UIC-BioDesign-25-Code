@@ -9,7 +9,7 @@
 using namespace std;
 
 #define glcm_levels 10
-#define distance 1
+#define warp_distance 1
 #define kernel_size 3 // Should be odd - almost never even, or else it will be difficult to find the center
 #define angle 0
 #define nbits 10 // number of bits used during the cooccurance matrix calculation
@@ -195,8 +195,8 @@ public:
 
         imgVec = digitize(imgVec, lines);
         
-        double dx = distance * cos(angle * (M_PI / 180));
-        double dy = distance * sin(-1 * angle * (M_PI / 180));
+        double dx = warp_distance * cos(angle * (M_PI / 180));
+        double dy = warp_distance * sin(-1 * angle * (M_PI / 180));
 
         vector<vector<int>> shiftedImg;
         // ASSUMES DX = -1 and DY = 0
