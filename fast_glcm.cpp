@@ -74,6 +74,7 @@ private:
         }
         return largest;
     }
+    //static pad_vector(vector){}
     // Gets the kernel from the 2D Vector and returns it; DOES NOT CHECK FOR OUT OF BOUNDS EXCEPTIONS - USE WITH CAUTION
     static vector<vector<int>> cropMatrix(vector<vector<int>> kernel, int row, int col)
     {
@@ -139,6 +140,7 @@ public:
     }
 //ALWAYS ASSUMES KERNEL IS SQUARE
 //ALWAYS ASSUMES KERNEL IS A SERIES OF 1s
+//ERROR: TO GET VALUES OUT OF IT THE 2D VECTOR THE WIDTH & HEIGHT MUST BE >KERNEL_SIZE -- TODO: ADD TEST CAST TO CHECK FOR THIS
     static vector<vector<int>> filter2D(vector<vector<int>> Mat, int depth, vector<vector<int>> kernel)
     {
         vector<vector<int>> output;
@@ -176,6 +178,8 @@ public:
             output.push_back(row);
             row.clear();
         }
+
+
 
     //Get result of convolution with Kernel as sum
         
@@ -258,7 +262,11 @@ public:
         }
 
         vector<vector<int>> kernel = vector<vector<int>>(kernel_size, vector<int>(kernel_size, 1));
-        vector4d filtered;
+        for(int i = 0; i<glcm.size();i++){
+            for(int j = 0; j<glcm[i].size();j++){
+                glcm[i][j] = filter2D(glcm[i][j], 1, kernel);
+            }
+        }
 
             return glcm;
         }
@@ -268,13 +276,14 @@ public:
     {
 
         vector<int> lines = fast_glcm<5, 2>::createLinspace(2, 82 + 1);
-        vector<vector<int>> arr2d;
-        arr2d.push_back({2, 3, 4, 6, 7});
-        arr2d.push_back({3, 5, 82, 34, 2});
-        // int arr[2][5] = {{2,3,4,6,7},{3,5,82,34,2}};
+        //
+        //arr2d.push_back({2, 3, 4, 6, 7});
+        //arr2d.push_back({3, 5, 82, 34, 2});
+        vector<vector<int>> arr2d =  {{2,3,4,6,7},{3,5,82,34,2},{2,3,7,5,8},{15,71,23,45,67},{2,56,7,89,1}};
+         int arr[2][5] = {{2,3,4,6,7},{3,5,82,34,2}};
 
         //Testing for main create_fast_glcm function
-        /*vector4d output = fast_glcm<2, 5>::create_fast_glcm(arr2d);
+        vector4d output = fast_glcm<5, 5>::create_fast_glcm(arr2d);
 
         cout << endl;
 
@@ -293,12 +302,30 @@ public:
                 cout << endl;
             }
             cout << endl;
-        }*/
-       
+        }
+
+       //Other testing
+       /*cout << "BEFORE CALLING FILTER2D" << endl;
+       vector<vector<int>> kernel = {{1, 1, 1}, {1, 1, 1}, {1, 1, 1}};
+            vector<vector<int>> output2 = fast_glcm<5, 5>::filter2D(output[0][0], 1, kernel);
+            cout << "AFTER CALLING FILTER2D" << endl;
+            for (vector<int> row : output2)
+            {
+                for (int x : row)
+                {
+                    cout << x << " ";
+                }
+                cout << endl;
+            }
+
+        */
+
+
+
        //Testing for filter2D function
-         vector<vector<int>> kernel = {{1, 1, 1}, {1, 1, 1}, {1, 1, 1}};
+         /*vector<vector<int>> kernel = {{1, 1, 1}, {1, 1, 1}, {1, 1, 1}};
             vector<vector<int>> Mat = {{1, 2, 3, 4, 5}, {6, 7, 8, 9, 10}, {11, 12, 13, 14, 15}, {16, 17, 18, 19, 20}, {21, 22, 23, 24, 25}};
-            cout << "BEFORE CALLING FILTER2D" << endl;
+           cout << "BEFORE CALLING FILTER2D" << endl;
             vector<vector<int>> output = fast_glcm<5, 5>::filter2D(Mat, 1, kernel);
             cout << "AFTER CALLING FILTER2D" << endl;
             for (vector<int> row : output)
@@ -308,6 +335,6 @@ public:
                     cout << x << " ";
                 }
                 cout << endl;
-            }
+            } */
         return 0;
     }
