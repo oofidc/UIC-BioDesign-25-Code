@@ -13,7 +13,7 @@ using namespace std;
 #define distance 1
 #define kernel_size 3 // Should be odd - almost never even, or else it will be difficult to find the center
 #define angle 0
-#define nbits 8 // number of bits used during the cooccurance matrix calculation
+#define nbits 10 // number of bits used during the cooccurance matrix calculation
 #define vector4d vector<vector<vector<vector<int>>>>
 
 // Based off of python 'fast_glcm.py' package - https://github.com/tzm030329/GLCM/blob/master/fast_glcm.py
@@ -317,7 +317,6 @@ public:
                 }
                 cout << endl;
             }
-
         */
 
 
@@ -337,4 +336,5 @@ public:
                 cout << endl;
             } */
         return 0;
+
     }

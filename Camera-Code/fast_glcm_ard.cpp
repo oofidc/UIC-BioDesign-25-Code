@@ -1,4 +1,6 @@
+//TODO:
 
+// - Make operable on Arduino(Remove cout)
 
 
 #include <vector> //Will need to be replaced with fixed_vector when writing for Arduino
@@ -10,7 +12,7 @@ using namespace std;
 #define distance 1
 #define kernel_size 3 // Should be odd - almost never even, or else it will be difficult to find the center
 #define angle 0
-#define nbits 8 // number of bits used during the cooccurance matrix calculation
+#define nbits 10 // number of bits used during the cooccurance matrix calculation
 #define vector4d vector<vector<vector<vector<int>>>>
 
 // Based off of python 'fast_glcm.py' package - https://github.com/tzm030329/GLCM/blob/master/fast_glcm.py
@@ -156,20 +158,20 @@ public:
         Designed to replicate cv2.filter2D() in OpenCV
          */
 
-        cout<< "KERNCEL DISTANCE: " << kernel_center<< " ROWS: "<< rows <<" COLS: "<<cols<<endl;//TEST PRINT
+        //cout<< "KERNCEL DISTANCE: " << kernel_center<< " ROWS: "<< rows <<" COLS: "<<cols<<endl;//TEST PRINT
         for(int r_i = kernel_center; r_i<rows-kernel_center;r_i++){
             vector<int> row;
-            cout << "DEBUG -- ROW: " << r_i << endl;// TEST PRINT
+           // cout << "DEBUG -- ROW: " << r_i << endl;// TEST PRINT
             for(int c_i = kernel_center; c_i<cols-kernel_center; c_i++){
                 sum = 0;
-                cout << "DEBUG -- COL: " << c_i << endl; //TEST PRINT
+                //cout << "DEBUG -- COL: " << c_i << endl; //TEST PRINT
                 //Iterate through kernel and process convolution
                 for(int i = r_i-kernel_center; i<=r_i+kernel_center; i++){
                     for(int j = c_i-kernel_center; j<=c_i+kernel_center; j++){
                         sum += Mat[i][j] * 1 ;/*Assumption can be reasonably made that since the kernel is almost always 1 so thus it can always be multiplied by one; however, if this approach were to return it must be made so that the values for i & j stay within limits to avoid crashing */ //kernel[i][j];
                     }
                 }
-                cout << "DEBUG -- SUM: " << sum << "\n\n"<< endl;//TEST PRINT
+                //cout << "DEBUG -- SUM: " << sum << "\n\n"<< endl;//TEST PRINT
                 row.push_back(sum);
             }
             output.push_back(row);
@@ -190,23 +192,9 @@ public:
         int ma = max2dVec<int>(imgVec);
         vector<int> lines = createLinspace(mi, ma);
 
-        for (int line : lines)
-        {
 
-            cout << line << " ";
-        }
-        cout << endl;
-        cout << ma << endl;
         imgVec = digitize(imgVec, lines);
-        cout << "AFTER DIGITIZE #1 " << endl;
-        for (vector<int> row : imgVec)
-        {
-            for (int x : row)
-            {
-                cout << x << " ";
-            }
-            cout << endl;
-        }
+        
         double dx = distance * cos(angle * (M_PI / 180));
         double dy = distance * sin(-1 * angle * (M_PI / 180));
 
@@ -224,15 +212,8 @@ public:
             row.push_back(temp);
             shiftedImg.push_back(row);
         }
-        cout << "AFTER DIGITIZE #2 " << endl;
-        for (vector<int> row : shiftedImg)
-        {
-            for (int x : row)
-            {
-                cout << x << " ";
-            }
-            cout << endl;
-        }
+
+       
         // Only works for rectangular shaped vectors - however most imags fit this
         vector4d glcm(nbits, std::vector<std::vector<std::vector<int>>>(
                                  nbits, std::vector<std::vector<int>>(
