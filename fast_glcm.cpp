@@ -1,3 +1,9 @@
+//TO-DO: 
+// - 2d Filtering method & Test it on its own -- DONE
+// 2. Implement filtering at the end of create_fast_glcm 
+
+
+
 #include <vector> //Will need to be replaced with fixed_vector when writing for Arduino
 #include <iostream>
 #include <cmath>
@@ -131,37 +137,51 @@ public:
 
         return digitized;
     }
-
+//ALWAYS ASSUMES KERNEL IS SQUARE
+//ALWAYS ASSUMES KERNEL IS A SERIES OF 1s
     static vector<vector<int>> filter2D(vector<vector<int>> Mat, int depth, vector<vector<int>> kernel)
     {
         vector<vector<int>> output;
-        int kernel_center = kernel_size / 2;
+
+        //Also denotes distance from the center to end; thus, starting and ending distance for  Iteration
+        int kernel_center = kernel_size / 2; 
         int rows = Mat.size();
         int cols = Mat[0].size();
         int sum;
-        for (int i = 0; i < rows; i++)
-        {
+        
+        /*
+        r_i - row index
+        c_i - column index
+        Index through the values of the matrix and multiply with the kernel --
+        Process known as convolution
+        Designed to replicate cv2.filter2D() in OpenCV
+         */
+
+        cout<< "KERNCEL DISTANCE: " << kernel_center<< " ROWS: "<< rows <<" COLS: "<<cols<<endl;//TEST PRINT
+        for(int r_i = kernel_center; r_i<rows-kernel_center;r_i++){
             vector<int> row;
-            for (int j = 0; j < cols; j++)
-            {
+            cout << "DEBUG -- ROW: " << r_i << endl;// TEST PRINT
+            for(int c_i = kernel_center; c_i<cols-kernel_center; c_i++){
                 sum = 0;
-                for (int k = 0; k < kernel_size; k++)
-                {
-                    for (int l = 0; l < kernel_size; l++)
-                    {
-                        if (i + k - kernel_center >= 0 && i + k - kernel_center < rows && j + l - kernel_center >= 0 && j + l - kernel_center < cols)
-                        {
-                            sum += Mat[i + k - kernel_center][j + l - kernel_center] * kernel[k][l];
-                        }
+                cout << "DEBUG -- COL: " << c_i << endl; //TEST PRINT
+                //Iterate through kernel and process convolution
+                for(int i = r_i-kernel_center; i<=r_i+kernel_center; i++){
+                    for(int j = c_i-kernel_center; j<=c_i+kernel_center; j++){
+                        sum += Mat[i][j] * 1 ;/*Assumption can be reasonably made that since the kernel is almost always 1 so thus it can always be multiplied by one; however, if this approach were to return it must be made so that the values for i & j stay within limits to avoid crashing */ //kernel[i][j];
                     }
                 }
+                cout << "DEBUG -- SUM: " << sum << "\n\n"<< endl;//TEST PRINT
                 row.push_back(sum);
             }
             output.push_back(row);
+            row.clear();
         }
+
+    //Get result of convolution with Kernel as sum
+        
+        
         return output;
     }
-
     static vector4d create_fast_glcm(vector<vector<int>> imgVec)
     {
 
@@ -238,48 +258,7 @@ public:
         }
 
         vector<vector<int>> kernel = vector<vector<int>>(kernel_size, vector<int>(kernel_size, 1));
-
-        for (int i = 0; i < nbits; i++)
-        {
-            for (int j = 0; j < nbits; j++)
-            {
-                // Begin 2D Filtering/Convolution
-
-                // Initialize variables for the convolution
-                int sum;
-                int rows = glcm[i][j].size();
-                int cols = glcm[i][j][0].size();
-                int kernel_center = kernel_size / 2; // Distance from center of kernel to edges
-                vector<vector<int>> output;          // Create vector for output of convolution
-
-                for (int i = kernel_center; i < rows - kernel_center; i++)
-                { // Begin at distance of kernel
-                    vector<int> row;
-                    for (int j = kernel_center; j < cols - kernel_center; j++)
-                    { // Begin at distance of kernel
-                        vector<vector<int>> cropped = cropMatrix(glcm[i][j], i, j);
-                        sum = 0;
-
-                        // Adds up sum of the convolution 3
-                        for (int k = 0; k < kernel_size; k++)
-                        {
-                            for (int l = 0; l < kernel_size; l++)
-                            {
-                                sum += cropped[k][l] * kernel[k][l];
-                            }
-                        }
-
-                        // Adds sum to a vector of this row's convolutions
-                        row.push_back(sum);
-                    }
-                    // adds rows of convolutions to the output
-                    output.push_back(row);
-                }
-            }
-
-        }
-
-            cout << "AFTER GLCM" << endl;
+        vector4d filtered;
 
             return glcm;
         }
@@ -293,7 +272,9 @@ public:
         arr2d.push_back({2, 3, 4, 6, 7});
         arr2d.push_back({3, 5, 82, 34, 2});
         // int arr[2][5] = {{2,3,4,6,7},{3,5,82,34,2}};
-        vector4d output = fast_glcm<2, 5>::create_fast_glcm(arr2d);
+
+        //Testing for main create_fast_glcm function
+        /*vector4d output = fast_glcm<2, 5>::create_fast_glcm(arr2d);
 
         cout << endl;
 
@@ -312,7 +293,21 @@ public:
                 cout << endl;
             }
             cout << endl;
-        }
-
+        }*/
+       
+       //Testing for filter2D function
+         vector<vector<int>> kernel = {{1, 1, 1}, {1, 1, 1}, {1, 1, 1}};
+            vector<vector<int>> Mat = {{1, 2, 3, 4, 5}, {6, 7, 8, 9, 10}, {11, 12, 13, 14, 15}, {16, 17, 18, 19, 20}, {21, 22, 23, 24, 25}};
+            cout << "BEFORE CALLING FILTER2D" << endl;
+            vector<vector<int>> output = fast_glcm<5, 5>::filter2D(Mat, 1, kernel);
+            cout << "AFTER CALLING FILTER2D" << endl;
+            for (vector<int> row : output)
+            {
+                for (int x : row)
+                {
+                    cout << x << " ";
+                }
+                cout << endl;
+            }
         return 0;
     }
