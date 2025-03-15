@@ -36,7 +36,7 @@ def calculate_glcm_contrast(image_path):
 
 # URL to capture image
 url = 'http://192.168.4.1/capture'
-'''
+
 # Make a request to get the image
 response = requests.get(url)
 if response.status_code == 200:
@@ -45,7 +45,7 @@ if response.status_code == 200:
 	print("Image saved as captured_image.jpg")
 else:
 	print("Failed to capture image")
-'''
+
 
 # Define the COM port and baud rate
 com_port = 'COM9'  # Change this to your COM port
