@@ -38,6 +38,7 @@ def calculate_glcm_contrast(image_path):
 url = 'http://192.168.4.1/capture'
 
 # Make a request to get the image
+print("REQUESTING DATA\n")
 response = requests.get(url)
 if response.status_code == 200:
 	with open('captured_image.jpg', 'wb') as file:
@@ -52,8 +53,10 @@ com_port = 'COM9'  # Change this to your COM port
 baud_rate = 9600
 
 # Generate a random variable
-random_variable = calculate_glcm_contrast('./High_Contrast.png')
-
+random_variable = calculate_glcm_contrast('./captured_image.jpg')
+print(f"Random variable: {random_variable}")
+#quit()
+(random_variable * 1023)/255
 # Write the random variable to the serial port
 try:
 	ser = serial.Serial(com_port, baud_rate)
