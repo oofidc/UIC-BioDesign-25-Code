@@ -8,7 +8,7 @@
 #include <cmath>
 using namespace std;
 
-#define glcm_levels 10
+#define glcm_levels 256
 #define warp_distance 1
 #define kernel_size 3 // Should be odd - almost never even, or else it will be difficult to find the center
 #define angle 0
@@ -248,4 +248,35 @@ public:
 
             return glcm;
         }
+
+        static vector<vector<int>> glcm_contrast(vector4d glcm)
+{
+
+    vector<vector<long long>> contrast_matrix(glcm[0][0].size(), vector<long long>(glcm[0][0][0].size(),0));
+    long long total_contrast = 0;
+    for (int i = 0; i < glcm.size(); i++)
+    {//cout << endl;
+        for (int j = 0; j < glcm[i].size(); j++)
+        { //cout << endl;
+            for (int y = 0; y < glcm[i][j].size(); y++)
+            { //cout << endl;
+                for (int x = 0; x < glcm[i][j][y].size(); x++)
+                {
+                     //cout << glcm[i][j][y][x] << " ";
+                    
+                if(abs(i-j) == y){
+                    contrast_matrix[y][x] += glcm[i][j][y][x] * (i - j) * (i-j);
+                    total_contrast +=  contrast_matrix[y][x];
+                }
+                }
+            }
+        }
+    }
+    
+    cout<< " TOTAL CONTRAST OF MATRICE: " << total_contrast << endl;
+
+    //this is so bullshit but Im runnin out of time
+    contrast_matrix[0][0] = total_contrast;
+    return contrast_matrix;
+}
     };
