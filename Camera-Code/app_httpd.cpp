@@ -253,15 +253,15 @@ static esp_err_t capture_handler(httpd_req_t *req) {
       httpd_resp_send_chunk(req, NULL, 0);
       fb_len = jchunk.len;
     }
-    esp_camera_fb_return(fb);
+    /*esp_camera_fb_return(fb);
     int64_t fr_end = esp_timer_get_time();
     Serial.printf("JPG: %uB %ums\n", (uint32_t)(fb_len), (uint32_t)((fr_end - fr_start) / 1000));
     dl_matrix3du_t *image_matrix = dl_matrix3du_alloc(1, fb->width, fb->height, 3);
     // Print grayscale values
     Serial.println("BEFORE PRINTING");
-    uint8_t *pixel_data = image_matrix->item;  // Pointer to the raw pixel data
+    uint8_t *pixel_data = image_matrix->item;  // Pointer to the raw pixel data*/
 
-    for (int y = 0; y < fb->height; y++) {
+    /*for (int y = 0; y < fb->height; y++) {
       //Serial.println("Y PRINTING");
       for (int x = 0; x < fb->width; x++) {
         // Serial.println("X PRINTING");
@@ -279,7 +279,7 @@ static esp_err_t capture_handler(httpd_req_t *req) {
         Serial.printf("Pixel at (%d, %d): Gray = %d\n", x, y, gray);
       }
     }
-    return res;
+    return res;*/
   }
   dl_matrix3du_t *image_matrix = dl_matrix3du_alloc(1, fb->width, fb->height, 3);
 

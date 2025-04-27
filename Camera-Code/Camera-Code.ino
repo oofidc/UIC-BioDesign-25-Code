@@ -196,6 +196,7 @@ void loop() {
   SocketServer_Test();
   FactoryTest();
   //capture_handler();
+  /*
   vector<vector<int>> arr2d = { { 2, 3, 4, 6, 7 }, { 3, 5, 82, 34, 2 }, { 2, 3, 7, 5, 8 }, { 15, 71, 23, 45, 67 }, { 2, 56, 7, 89, 1 } };
   vector4d output = fast_glcm_ard<5, 5>::create_fast_glcm(arr2d);
 
@@ -213,7 +214,7 @@ void loop() {
     }
     Serial2.println("\n");
   }
-  delay(10000);
+  delay(10000);*/
 }
 
 /*

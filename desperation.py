@@ -7,6 +7,7 @@ import numpy as np
 from PIL import Image
 import requests
 from io import BytesIO
+import pandas as pd
 
 def calculate_glcm_contrast(image_path):
     """Calculates the contrast feature of the GLCM for a given image (local path or URL)."""
@@ -33,6 +34,8 @@ def calculate_glcm_contrast(image_path):
 
 #VALUES CAN BE FROM 130 to 255
 
+#Begin Training Model
+df = pd.DataFrame("image_data.csv")
 
 # URL to capture image
 url = 'http://192.168.4.1/capture'

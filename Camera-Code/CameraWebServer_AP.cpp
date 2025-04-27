@@ -91,9 +91,9 @@ void CameraWebServer_AP::CameraWebServer_AP_Init(void)
   }
   sensor_t *s = esp_camera_sensor_get();
   //drop down frame size for higher initial frame rate
-  //s->set_framesize(s, FRAMESIZE_SXGA); //字节长度采样值:60000                 #9 (画质高)  1280x1024
+  s->set_framesize(s, FRAMESIZE_SXGA); //字节长度采样值:60000                 #9 (画质高)  1280x1024
   //s->set_framesize(s, FRAMESIZE_SVGA); //字节长度采样值:40000                   #7 (画质中)  800x600
-  s->set_framesize(s, FRAMESIZE_QVGA); //字节长度采样值:10000                #4 (画质低)  320x240
+  //s->set_framesize(s, FRAMESIZE_QVGA); //字节长度采样值:10000                #4 (画质低)  320x240
 
 #if defined(CAMERA_MODEL_M5STACK_WIDE)
   s->set_vflip(s, 0);
