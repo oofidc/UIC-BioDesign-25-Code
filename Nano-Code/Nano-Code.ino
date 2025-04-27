@@ -1,27 +1,34 @@
-int voltage;
-  int voltage_0;
+#define vib_port A2
+
+int blinkDelay = 500; // default blink delay in milliseconds
+
 void setup() {
-  // put your setup code here, to run once:
   Serial.begin(9600);
-  voltage = 240;
+  pinMode(vib_port, OUTPUT); // Set the orange LED pin as output
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  String input = "";
+  int number;
+  if (Serial.available()) {
+    String input = Serial.readStringUntil('\n'); // Read until Enter key
+    input.trim(); // Remove any spaces or newlines
 
-  //Serial.println("RUNNING THE LOOP");
-  while(voltage_0==voltage){
-  if(Serial.available()){
-    input = Serial.readString();
-    if(input.length()>0){
-      
-      voltage = input.toInt();
-      Serial.println(voltage);
+    if (input.length() > 0) {
+    number = input.toInt(); // Convert to integer
+      if (number >= 0 && number <= 1023) {
+        Serial.print("This is the correct number: ");
+        Serial.println(number);
+
+        // Map 0-1023 to a reasonable blink speed, like 50ms to 1000ms
+        analogWrite(vib_port,number);
+      } else {
+        Serial.println("Number out of range (0-1023)");
+      }
     }
   }
-  }
-  analogWrite(A2,voltage);
-  voltage_0 = voltage;
+
+
   
+  // Blink the LED
+
 }
