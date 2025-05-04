@@ -224,7 +224,7 @@ while(True):
     else:
         pred_0 = predicted_roughness
     trigger_vib_voltage(predicted_roughness=predicted_roughness)
-    time.sleep(1.5)
+    time.sleep(1)
    
 
 
