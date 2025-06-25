@@ -18,6 +18,12 @@ Here's a set of steps I plan to go through to create a fully functional device b
     - Create new Streamlit Form for Continued Data Collection
     - Modify App for
 
+## Project Organization
+    - Figures+Animations contains all the figures and animations used in the project since the ISU HSRS competition,
+    - notebooks has and will contain all the Jupyter notebooks used in the project which are not related to the creation of Figures
+    - Nano-Code denotes code for the Nano, Camera-Code denotes code which should be uploaded to the ESP32.
+    - Testing Files for now remain outside of any folder -- *however, this should be changed in th future*
+
 
 ## Old Information/README:
 ## UIC BIODESIGN CODE '25 - Hinsdale South Codons
