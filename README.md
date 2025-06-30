@@ -1,4 +1,6 @@
-# NuTouch Code
+# PALM - Prothetic Adaptive Limb Module 
+## Never call this shit 'NuTouch' Again or I'll NuTouch you
+### Remind me to remove the header above before publication
 
 UMN SURE: **Date to be Decided**, Likely around August 8th
 
