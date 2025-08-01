@@ -158,7 +158,7 @@ public:
         Designed to replicate cv2.filter2D() in OpenCV
          */
 
-        //cout<< "KERNCEL DISTANCE: " << kernel_center<< " ROWS: "<< rows <<" COLS: "<<cols<<endl;//TEST PRINT
+        //cout<< "KERNEL DISTANCE: " << kernel_center<< " ROWS: "<< rows <<" COLS: "<<cols<<endl;//TEST PRINT
         for(int r_i = kernel_center; r_i<rows-kernel_center;r_i++){
             vector<int> row;
            // cout << "DEBUG -- ROW: " << r_i << endl;// TEST PRINT
