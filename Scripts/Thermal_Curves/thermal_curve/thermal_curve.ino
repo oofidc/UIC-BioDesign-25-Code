@@ -26,6 +26,10 @@ void loop(void) {
   Serial.print(sensors.getTempCByIndex(0));
   Serial.print("°C  |  ");
 
+   Serial.print("Temperature: ");
+  Serial.print(sensors.getTempCByIndex(0) + 273.15);
+  Serial.print("°K  |  ");
+
   //print the temperature in Fahrenheit
   Serial.print((sensors.getTempCByIndex(0) * 9.0) / 5.0 + 32.0);
   Serial.println("°F");

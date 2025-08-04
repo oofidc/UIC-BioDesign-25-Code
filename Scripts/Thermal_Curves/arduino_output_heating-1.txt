@@ -1,367 +1,65 @@
-Bootin'....
-Voltage: 6.00
-Temperature: -246.53 °C
-Temperature(BETA): 292.39 °K
-Voltage: 7.00
-Temperature: -246.27 °C
-Temperature(BETA): 292.51 °K
-Voltage: 47.00
-Temperature: -242.41 °C
-Temperature(BETA): 293.98 °K
-Voltage: 45.00
-Temperature: -242.51 °C
-Temperature(BETA): 293.95 °K
-Voltage: 42.00
-Temperature: -242.68 °C
-Temperature(BETA): 293.89 °K
-Voltage: 40.00
-Temperature: -242.79 °C
-Temperature(BETA): 293.85 °K
-Voltage: 39.00
-Temperature: -242.85 °C
-Temperature(BETA): 293.83 °K
-Voltage: 38.00
-Temperature: -242.91 °C
-Temperature(BETA): 293.81 °K
-Voltage: 37.00
-Temperature: -242.97 °C
-Temperature(BETA): 293.79 °K
-Voltage: 36.00
-Temperature: -243.03 °C
-Temperature(BETA): 293.77 °K
-Voltage: 36.00
-Temperature: -243.03 °C
-Temperature(BETA): 293.77 °K
-Voltage: 35.00
-Temperature: -243.10 °C
-Temperature(BETA): 293.75 °K
-Voltage: 35.00
-Temperature: -243.10 °C
-Temperature(BETA): 293.75 °K
-Voltage: 35.00
-Temperature: -243.10 °C
-Temperature(BETA): 293.75 °K
-Voltage: 35.00
-Temperature: -243.10 °C
-Temperature(BETA): 293.75 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 33.00
-Temperature: -243.23 °C
-Temperature(BETA): 293.70 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 33.00
-Temperature: -243.23 °C
-Temperature(BETA): 293.70 °K
-Voltage: 33.00
-Temperature: -243.23 °C
-Temperature(BETA): 293.70 °K
-Voltage: 33.00
-Temperature: -243.23 °C
-Temperature(BETA): 293.70 °K
-Voltage: 33.00
-Temperature: -243.23 °C
-Temperature(BETA): 293.70 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 33.00
-Temperature: -243.23 °C
-Temperature(BETA): 293.70 °K
-Voltage: 33.00
-Temperature: -243.23 °C
-Temperature(BETA): 293.70 °K
-Voltage: 33.00
-Temperature: -243.23 °C
-Temperature(BETA): 293.70 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 33.00
-Temperature: -243.23 °C
-Temperature(BETA): 293.70 °K
-Voltage: 33.00
-Temperature: -243.23 °C
-Temperature(BETA): 293.70 °K
-Voltage: 33.00
-Temperature: -243.23 °C
-Temperature(BETA): 293.70 °K
-Voltage: 33.00
-Temperature: -243.23 °C
-Temperature(BETA): 293.70 °K
-Voltage: 33.00
-Temperature: -243.23 °C
-Temperature(BETA): 293.70 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 33.00
-Temperature: -243.23 °C
-Temperature(BETA): 293.70 °K
-Voltage: 33.00
-Temperature: -243.23 °C
-Temperature(BETA): 293.70 °K
-Voltage: 33.00
-Temperature: -243.23 °C
-Temperature(BETA): 293.70 °K
-Voltage: 33.00
-Temperature: -243.23 °C
-Temperature(BETA): 293.70 °K
-Voltage: 33.00
-Temperature: -243.23 °C
-Temperature(BETA): 293.70 °K
-Voltage: 33.00
-Temperature: -243.23 °C
-Temperature(BETA): 293.70 °K
-Voltage: 33.00
-Temperature: -243.23 °C
-Temperature(BETA): 293.70 °K
-Voltage: 33.00
-Temperature: -243.23 °C
-Temperature(BETA): 293.70 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 33.00
-Temperature: -243.23 °C
-Temperature(BETA): 293.70 °K
-Voltage: 33.00
-Temperature: -243.23 °C
-Temperature(BETA): 293.70 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 35.00
-Temperature: -243.10 °C
-Temperature(BETA): 293.75 °K
-Voltage: 35.00
-Temperature: -243.10 °C
-Temperature(BETA): 293.75 °K
-Voltage: 36.00
-Temperature: -243.03 °C
-Temperature(BETA): 293.77 °K
-Voltage: 36.00
-Temperature: -243.03 °C
-Temperature(BETA): 293.77 °K
-Voltage: 36.00
-Temperature: -243.03 °C
-Temperature(BETA): 293.77 °K
-Voltage: 36.00
-Temperature: -243.03 °C
-Temperature(BETA): 293.77 °K
-Voltage: 36.00
-Temperature: -243.03 °C
-Temperature(BETA): 293.77 °K
-Voltage: 36.00
-Temperature: -243.03 °C
-Temperature(BETA): 293.77 °K
-Voltage: 35.00
-Temperature: -243.10 °C
-Temperature(BETA): 293.75 °K
-Voltage: 35.00
-Temperature: -243.10 °C
-Temperature(BETA): 293.75 °K
-Voltage: 35.00
-Temperature: -243.10 °C
-Temperature(BETA): 293.75 °K
-Voltage: 36.00
-Temperature: -243.03 °C
-Temperature(BETA): 293.77 °K
-Voltage: 35.00
-Temperature: -243.10 °C
-Temperature(BETA): 293.75 °K
-Voltage: 35.00
-Temperature: -243.10 °C
-Temperature(BETA): 293.75 °K
-Voltage: 35.00
-Temperature: -243.10 °C
-Temperature(BETA): 293.75 °K
-Voltage: 35.00
-Temperature: -243.10 °C
-Temperature(BETA): 293.75 °K
-Voltage: 35.00
-Temperature: -243.10 °C
-Temperature(BETA): 293.75 °K
-Voltage: 35.00
-Temperature: -243.10 °C
-Temperature(BETA): 293.75 °K
-Voltage: 35.00
-Temperature: -243.10 °C
-Temperature(BETA): 293.75 °K
-Voltage: 35.00
-Temperature: -243.10 °C
-Temperature(BETA): 293.75 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 35.00
-Temperature: -243.10 °C
-Temperature(BETA): 293.75 °K
-Voltage: 35.00
-Temperature: -243.10 °C
-Temperature(BETA): 293.75 °K
-Voltage: 35.00
-Temperature: -243.10 °C
-Temperature(BETA): 293.75 °K
-Voltage: 35.00
-Temperature: -243.10 °C
-Temperature(BETA): 293.75 °K
-Voltage: 35.00
-Temperature: -243.10 °C
-Temperature(BETA): 293.75 °K
-Voltage: 35.00
-Temperature: -243.10 °C
-Temperature(BETA): 293.75 °K
-Voltage: 35.00
-Temperature: -243.10 °C
-Temperature(BETA): 293.75 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 34.00
-Temperature: -243.16 °C
-Temperature(BETA): 293.73 °K
-Voltage: 35.00
-Temperature: -243.10 °C
-Temperature(BETA): 293.75 °K
-Voltage: 36.00
-Temperature: -243.03 °C
-Temperature(BETA): 293.77 °K
-Voltage: 36.00
-Temperature: -243.03 °C
-Temperature(BETA): 293.77 °K
-Voltage: 36.00
-Temperature: -243.03 °C
-Temperature(BETA): 293.77 °K
-Voltage: 36.00
-Temperature: -243.03 °C
-Temperature(BETA): 293.77 °K
-Voltage: 36.00
-Temperature: -243.03 °C
-Temperature(BETA): 293.77 °K
-Voltage: 36.00
-Temperature: -243.03 °C
-Temperature(BETA): 293.77 °K
-Voltage: 36.00
-Temperature: -243.03 °C
-Temperature(BETA): 293.77 °K
-Voltage: 35.00
-Temperature: -243.10 °C
-Temperature(BETA): 293.75 °K
-Voltage: 35.00
-Temperature: -243.10 °C
-Temperature(BETA): 293.75 °K
+Temperature: 28.37°C  |  Temperature: 301.52°K  |  83.07°F
+Temperature: 28.31°C  |  Temperature: 301.46°K  |  82.96°F
+Temperature: 28.31°C  |  Temperature: 301.46°K  |  82.96°F
+Temperature: 28.37°C  |  Temperature: 301.52°K  |  83.07°F
+Temperature: 28.37°C  |  Temperature: 301.52°K  |  83.07°F
+Temperature: 28.37°C  |  Temperature: 301.52°K  |  83.07°F
+Temperature: 28.37°C  |  Temperature: 301.52°K  |  83.07°F
+Temperature: 28.44°C  |  Temperature: 301.59°K  |  83.19°F
+Temperature: 28.44°C  |  Temperature: 301.59°K  |  83.19°F
+Temperature: 28.56°C  |  Temperature: 301.71°K  |  83.41°F
+Temperature: 28.56°C  |  Temperature: 301.71°K  |  83.41°F
+Temperature: 28.75°C  |  Temperature: 301.90°K  |  83.75°F
+Temperature: 28.75°C  |  Temperature: 301.90°K  |  83.75°F
+Temperature: 29.06°C  |  Temperature: 302.21°K  |  84.31°F
+Temperature: 29.06°C  |  Temperature: 302.21°K  |  84.31°F
+Temperature: 29.44°C  |  Temperature: 302.59°K  |  84.99°F
+Temperature: 29.44°C  |  Temperature: 302.59°K  |  84.99°F
+Temperature: 29.81°C  |  Temperature: 302.96°K  |  85.66°F
+Temperature: 29.81°C  |  Temperature: 302.96°K  |  85.66°F
+Temperature: 30.19°C  |  Temperature: 303.34°K  |  86.34°F
+Temperature: 30.19°C  |  Temperature: 303.34°K  |  86.34°F
+Temperature: 30.62°C  |  Temperature: 303.77°K  |  87.12°F
+Temperature: 30.62°C  |  Temperature: 303.77°K  |  87.12°F
+Temperature: 31.00°C  |  Temperature: 304.15°K  |  87.80°F
+Temperature: 31.00°C  |  Temperature: 304.15°K  |  87.80°F
+Temperature: 31.37°C  |  Temperature: 304.52°K  |  88.47°F
+Temperature: 31.37°C  |  Temperature: 304.52°K  |  88.47°F
+Temperature: 31.69°C  |  Temperature: 304.84°K  |  89.04°F
+Temperature: 31.69°C  |  Temperature: 304.84°K  |  89.04°F
+Temperature: 32.00°C  |  Temperature: 305.15°K  |  89.60°F
+Temperature: 32.00°C  |  Temperature: 305.15°K  |  89.60°F
+Temperature: 32.31°C  |  Temperature: 305.46°K  |  90.16°F
+Temperature: 32.31°C  |  Temperature: 305.46°K  |  90.16°F
+Temperature: 32.63°C  |  Temperature: 305.77°K  |  90.72°F
+Temperature: 32.63°C  |  Temperature: 305.77°K  |  90.72°F
+Temperature: 32.88°C  |  Temperature: 306.02°K  |  91.18°F
+Temperature: 32.88°C  |  Temperature: 306.02°K  |  91.18°F
+Temperature: 33.13°C  |  Temperature: 306.27°K  |  91.62°F
+Temperature: 33.13°C  |  Temperature: 306.27°K  |  91.62°F
+Temperature: 33.44°C  |  Temperature: 306.59°K  |  92.19°F
+Temperature: 33.44°C  |  Temperature: 306.59°K  |  92.19°F
+Temperature: 33.69°C  |  Temperature: 306.84°K  |  92.64°F
+Temperature: 33.69°C  |  Temperature: 306.84°K  |  92.64°F
+Temperature: 33.94°C  |  Temperature: 307.09°K  |  93.09°F
+Temperature: 33.94°C  |  Temperature: 307.09°K  |  93.09°F
+Temperature: 34.13°C  |  Temperature: 307.27°K  |  93.43°F
+Temperature: 34.13°C  |  Temperature: 307.27°K  |  93.43°F
+Temperature: 34.38°C  |  Temperature: 307.52°K  |  93.87°F
+Temperature: 34.38°C  |  Temperature: 307.52°K  |  93.87°F
+Temperature: 34.63°C  |  Temperature: 307.77°K  |  94.32°F
+Temperature: 34.63°C  |  Temperature: 307.77°K  |  94.32°F
+Temperature: 34.81°C  |  Temperature: 307.96°K  |  94.66°F
+Temperature: 34.81°C  |  Temperature: 307.96°K  |  94.66°F
+Temperature: 35.06°C  |  Temperature: 308.21°K  |  95.11°F
+Temperature: 35.06°C  |  Temperature: 308.21°K  |  95.11°F
+Temperature: 35.31°C  |  Temperature: 308.46°K  |  95.56°F
+Temperature: 35.31°C  |  Temperature: 308.46°K  |  95.56°F
+Temperature: 35.50°C  |  Temperature: 308.65°K  |  95.90°F
+Temperature: 35.50°C  |  Temperature: 308.65°K  |  95.90°F
+Temperature: 35.75°C  |  Temperature: 308.90°K  |  96.35°F
+Temperature: 35.75°C  |  Temperature: 308.90°K  |  96.35°F
+Temperature: 35.94°C  |  Temperature: 309.09°K  |  96.69°F
+Temperature: 35.94°C  |  Temperature: 309.09°K  |  96.69°F
+Temperature: 36.13°C  |  Temperature: 309.27°K  |  97.02°F
+Temperature: 36.13°C  |  Temperature: 309.27°K  |  97.02°F
