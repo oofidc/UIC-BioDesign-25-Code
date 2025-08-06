@@ -1,5 +1,21 @@
 #include "Arduino.h"
 #include "MPU9250.h"
+#include "Adafruit_VL53L0X.h"
+#include <SoftwareWire.h>
+
+#define lox_SDA A2
+#define lox_SCL A3
+
+
+
+const int DIGITAL_GND_PORTS[] = {3, 4, 5}; 
+
+bool dig_to_gnd(){
+    for(int port: DIGITAL_GND_PORTS){
+        pinMode(port,INPUT);
+    }
+}
+
 
 // Compoennt class to represent simple parts where a voltage is just run through the device and you feel it(Cooler, Heating Pad, Thermistor)
 class Component
@@ -45,9 +61,9 @@ public:
     int getPin() const { return pin; }
 };
 
+
 // Class designed for checking existence of MPU9250
 //based off library here - https://github.com/hideakitai/MPU9250/blob/master/examples/connection_check/connection_check.ino
-
 class MPU9250_Check
 {
     uint8_t addrs[7] = {0};
@@ -57,13 +73,17 @@ class MPU9250_Check
     {
         Serial.println("Searching for i2c devices...");
         device_count = 0;
+        Serial.println("To Loop through Adresses...");
         for (uint8_t i = 0x68; i < 0x70; ++i)
         {
+            Serial.println("DEBUG: Iterating Through Address");
             wire.beginTransmission(i);
+            Serial.println("DEBUG: Begun Transmission @ Address");
             if (wire.endTransmission() == 0)
             {
                 addrs[device_count++] = i;
                 delay(10);
+                Serial.println("DEBUG:  Found Device");
             }
         }
         Serial.print("Found ");
@@ -106,8 +126,7 @@ class MPU9250_Check
         if (device_count == 0)
         {
             Serial.println("No device found on I2C bus. Please check your hardware connection");
-            while (1)
-                ;
+            while(1);
         }
 
         // check WHO_AM_I address of MPU
@@ -144,24 +163,56 @@ class MPU9250_Check
             }
             else
             {
-                Serial.print("AK8963 (Magnetometer) was not found");
+                //Serial.print("AK8963 (Magnetometer) was not found"); //This shpuld be uncommented later. Commented for DEBUG
             }
         }
     }
 
 };
 
+bool vl53l0x_check(){   
+    SoftwareWire loxWire(lox_SDA, lox_SCL); 
+    Adafruit_VL53L0X lox = Adafruit_VL53L0X();
+    if (!lox.begin(0x29, &loxWire)) {
+        Serial.println(F("Failed to boot VL53L0X"));
+        return false;
+    }
+    Serial.print("Succesfully Booted VL53L0X;");
+    for(int i = 0; i< 10; i++){
+        VL53L0X_RangingMeasurementData_t measure;
+            
+        Serial.print("Reading a measurement... ");
+        lox.rangingTest(&measure, false); // pass in 'true' to get debug data printout!
+
+        if (measure.RangeStatus != 4) {  // phase failures have incorrect data
+            Serial.print("Distance (mm): "); Serial.println(measure.RangeMilliMeter);
+        } else {
+            Serial.println(" out of range ");
+        }
+            
+        delay(100);
+    }
+    return true;
+
+}
+
 void setup()
 {
-
     Serial.begin(9600);
+    dig_to_gnd();
+    // wait until serial port opens for native USB devices
+    while (! Serial) {
+        delay(1);
+    }
+
     Serial.println("Components Testing Setup Complete... Bootin' up!");
 
     Serial.println("Beginning to Check for MPU9250...");
     MPU9250_Check mpu_check;
     mpu_check.check_connection();
+
+    Serial.println("Beginning to Check for VL53L0X");
+    vl53l0x_check();
 }
 
 void loop(){}
-
-
