@@ -1,39 +1,24 @@
-# PALM - Prothetic Adaptive Limb Module 
-## Never call this shit 'NuTouch' Again or I'll NuTouch you
-### Remind me to remove the header above before publication
+# PALM - Prothetic Adaptive Limb Module (Formerly NuTouch)
+PALM: A Low-Cost, Wearable Vibrotactile and Thermal Feedback Device for Upper Limb Prostheses
 
-UMN SURE: **Date to be Decided**, Likely around August 8th
+🏆 **1st Place, UIC BioDesign 2025** – Hinsdale South Codons
 
-Here's a set of steps I plan to go through to create a fully functional device between now and them:
+🎤 **Selected Presentation, UMN SURE 2025** (University of Minnesota Summer Undergraduate Research Expo)
 
-**6/17 - 6/21**
-- Clean Up GitHub Repository & Organize Software
-    - Remove Unnecesary Random Images and Cpp/Python files not neccessary or productive to this Firmware in the future
-    - Investigate Datasets sent by Rohan, evaluate ways to turn such information into training data for our model
-    - Clean old Jupyter notebooks. Consider moving them to another GitHub Repository instead of one singular monorepo.
-**6/21 - 6/22**
-- Evaluate Hardware
-    - Make sure new(longer) Camera cable isn't defective
-    - Test Peltier Cooler & Heating Device
-    - Discuss Redesign of thermal systems with Rohan
-- Begin Exploratory Data Analysis & Model Preparations
-    - Create new Streamlit Form for Continued Data Collection
-    - Modify App for
-
-## TODO Before Publication:
-    - Anonymize RRS_Survey.json
-## Project Organization
-    - Figures+Animations contains all the figures and animations used in the project since the ISU HSRS competition,
-    - notebooks has and will contain all the Jupyter notebooks used in the project which are not related to the creation of Figures
-    - Nano-Code denotes code for the Nano, Camera-Code denotes code which should be uploaded to the ESP32.
-    - Testing Files for now remain outside of any folder -- *however, this should be changed in th future*
+📊 **Accepted Poster, BMES 2025** – High School Poster Competition
 
 
-## Old Information/README:
-## UIC BIODESIGN CODE '25 - Hinsdale South Codons
-### (1st Place Project )
+## Abstract/Overview
 
-This review is relatively late - I'm writing this on Tuesday despite the competition having been during the weekend. This competition was really rushed and as a result the quality of this code is quite low. Since the professors offered to help us out in the future - It's assumed some modifications will have to be made to this code in order for it to be s
+_An estimated 2.3 million Americans live with limb loss, and 30% are affected by upper limb amputations. 185,000 amputations are performed in the U.S. annually, and around 6–7 out of every 10,000 births involve congenital upper limb differences. Despite technological advances, upper limb prosthetic abandonment remains widespread—ranging from 24% to over 70%—largely due to a lack of sensory feedback and the high cost of advanced devices. Existing feedback methods, such as targeted muscle reinnervation (TMR), are invasive, expensive, and often inaccessible. To address this, we developed a non-invasive, low-cost, and self-contained vibrotactile and thermal feedback device, PALM (Prosthetic Adaptive Limb Module), compatible with most upper limb prostheses. The system integrates thermistors, a Peltier module for thermal feedback, and a computer vision pipeline using an ESP32 camera and various embedded Image Feature Extraction algorithms for texture analysis. A Support Vector Regression model estimates surface roughness with near real-time responsiveness and maps it to a vibrotactile actuator for haptic output. All components are compact, lightweight, and collectively cost under $90. The device avoids surgical procedures and calibration-heavy systems, providing a scalable solution to enhance embodiment, reduce abandonment, and improve prosthesis functionality in daily use._
 
+## System Architechture 
+- KiCAD Files for Circuit Design are included in repo
+- All parts combined cost less than 90$
+## Future Work
+- Reworking & Modularizing different ML operations
+- Incoporating MPU9250 & VL53L0X Code into main repository
+- Cleaning Up Notebooks and establish Gemini Fine-Tuning
+- Include the Full Poster within README
 
 
